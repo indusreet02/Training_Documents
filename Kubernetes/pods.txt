@@ -83,6 +83,28 @@ spec:
   selector:
     matchLabels:
       app: nginx-app
+**************************************
+Create and display deploymen
+kubectl create -f nginx-deploy.yaml
+kubectl get deploy
+kubectl get deploy -o wide
+kubectl get rs
+kubectl get deploy -l app=nginx-app
+kubectl get po -l app=nginx-app
+kubectl get rs -l app=nginx-app
+kubectl describe deploy nginx-deploy
+
+*****************************************
+Scale-Up
+kubectl scale deployment nginx-deploy --replicas=5
+kubectl get deploy
+kubectl get po -o wide
+
+Scale-Down
+kubectl scale deployment nginx-deploy --replicas=2
+kubectl get deploy
+kubectl get po -o wide
+
 
 # Delete pod & svc
 kubectl delete svc nginx-pod
