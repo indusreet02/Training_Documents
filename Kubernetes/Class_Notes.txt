@@ -434,6 +434,8 @@ Day 20 : 21st Sep. 2025
 				- Static Provisioning - known entities, storage will be created previously and then dev will request for storage.
 				
 				- Dynamic Provisioning - runtime allocation- whenever dev doesn't know how much vol is required
+                                           storage admin shud define storage classes upfront
+Storage classes- fast ,slow and distributed
 				
 				
 		Storage Administrators
