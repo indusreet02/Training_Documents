@@ -35,7 +35,7 @@ kubectl describe pod nginx-pod
 3. Test & Delete
 
 # To get inside the pod
-kubectl exec -it nginx-pod -- bash
+kubectl exec -it nginx-pod -- /bin/bash
 
 exit
 
