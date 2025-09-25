@@ -36,6 +36,7 @@ kubectl describe pod nginx-pod
 
 # To get inside the pod
 kubectl exec -it nginx-pod -- /bin/bash
+kubectl exec -it nginx-pod -c nginx-container -- /bin/bash
 
 exit
 
