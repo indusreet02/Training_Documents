@@ -406,7 +406,7 @@ Day 20 : 21st Sep. 2025
 	
 		- NodePort 
 		
-		- ClusterIP 
+		- ClusterIP - Act as a interface between pods within cluster
 		
 		- Load Balancer
 		
