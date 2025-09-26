@@ -137,3 +137,11 @@ spec:
   - name: test-vol
     hostPath:
       path: /test-vol
+
+*******************************************
+namespace
+kubectl get ns
+kubectl get pods -n <namespace_name> 
+exm- kubectl get pods -n kube-system
+kubectl create namespace dev/qa/uat
+
