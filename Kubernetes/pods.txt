@@ -119,3 +119,21 @@ imagepullbackoff/ errimgagepull- if image is not present in container registry
 # Delete pod & svc
 kubectl delete svc nginx-pod
 kubectl delete pod nginx-pod
+
+**********************************************
+nginx-hostpath.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-hostpath
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    volumeMounts: 
+    - mountPath: /test-mnt
+      name: test-vol
+  volumes:
+  - name: test-vol
+    hostPath:
+      path: /test-vol
