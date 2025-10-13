@@ -66,7 +66,35 @@ Day 18 : 14th Sep. 2025
 			
 			CRI - Container RunTime Interface (Container-D)
 									--> # It is used identify the Image from Container Registry for deployment				
-		
+A Kubernetes cluster fundamentally consists of two core components: the Control Plane and Worker Nodes.
+Control Plane.
+
+The Control Plane- often referred to as the "master" components, manages and orchestrates the entire Kubernetes cluster. It is responsible for maintaining the desired state of the cluster, scheduling workloads, and handling communication within the cluster.
+
+Key components of the Control Plane include:
+
+kube-apiserver: This serves as the front-end for the Kubernetes control plane, exposing the Kubernetes API. It handles all communication between the control plane and other components, as well as external user requests (e.g., via kubectl).
+
+etcd: A highly available key-value store that serves as the cluster's single source of truth. It stores all cluster data, including configurations, desired states, and actual states of resources.
+
+kube-scheduler: Responsible for scheduling pods onto appropriate worker nodes. It considers factors like resource requirements, node availability, and other constraints to make optimal placement decisions.
+
+kube-controller-manager: Runs various controller processes that regulate the cluster's state. These controllers continuously monitor the cluster's actual state and work to bring it closer to the desired state (e.g., ensuring the correct number of replicas for a deployment).
+
+cloud-controller-manager (optional): Integrates Kubernetes with various cloud provider APIs, allowing for cloud-specific resource management like load balancers and persistent storage volumes.
+
+Worker Nodes
+
+Worker Nodes, also known as "minions," are the machines (physical or virtual) that run the actual containerized applications. They receive instructions from the Control Plane and execute the workloads.
+
+Key components on each Worker Node include:
+
+kubelet: An agent that runs on each worker node and communicates with the Control Plane (specifically the kube-apiserver). It is responsible for managing the lifecycle of pods on its node, ensuring containers are running as specified, and reporting the node's status and resource usage back to the Control Plane.
+
+kube-proxy: A network proxy that runs on each worker node. It manages network rules on the node, enabling network communication between pods and from external sources to pods, implementing service discovery and load balancing.
+
+Container Runtime: The software responsible for running containers. Common container runtimes include Docker, containerd, and CRI-O. It pulls container images, runs containers within pods, and manages their resources.
+
 		- Terminologies :::
 		
 			- Container Images :
@@ -410,7 +438,15 @@ Day 20 : 21st Sep. 2025
 		
 		- Load Balancer
 		
-	
+	    - ExternalName:
+Purpose: Maps a Service to an external DNS name.
+Access: Acts as a CNAME record, redirecting traffic to an external service outside the Kubernetes cluster.
+Use Case: Integrating with external services or databases that are not running within the Kubernetes cluster.
+
+Headless Service:
+Purpose: Provides direct access to individual Pods without a stable ClusterIP.
+Access: When clusterIP is set to None, Kubernetes does not assign a ClusterIP. Instead, the DNS server returns the IP addresses of the Pods backing the Service.
+Use Case: Stateful applications where direct communication with individual Pods is required, such as databases or custom service discovery mechanisms.
 	- Volumes::::
 	
 		- Used to maintain the persistant data.
