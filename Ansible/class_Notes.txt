@@ -131,6 +131,8 @@ Day 20 : 21st Sep. 2025
 			- Used to execute the series of task/Modules in the target machine.
 			- Ansible Playbooks should be reusable 
 			- Ansible Playbooks are written using *.yaml Scripts 
+            playbook is a single yaml file which contains play- defines set of activities/tasks to be run on hosts
+			Task can be anything (execute command/run a script/install pkg/shutdown or restart)
 			
 				Eg.: 
 					Target Server : 
@@ -151,7 +153,7 @@ Day 20 : 21st Sep. 2025
 							- start tomcat service 
 		
 		
-		
+		ansible facts- it can capture by the help of setup module which defines the configuration details(hardware/software architechture of servers or resource utilisation/ memory utilisation
 	
 	- Ansible Playbooks ::::
 	
@@ -182,6 +184,28 @@ Day 20 : 21st Sep. 2025
 			
 			https://galaxy.ansible.com/ui/	
 
+example of playbook
+playbook.yaml
+name: Play1
+hosts: localhost
+tasks:
+ - name: Execute command date
+   command: date
 
+ - name: Execute script on server
+   script: test_script.sh
+
+name: Play2
+hosts: localhost
+tasks:
+       - name: Install web service
+		 yum: 
+			  name: httpd
+			  state: present
+
+	   - name: Start web server
+		 service: 
+				  name: httpd
+                  state: present
 
 	
