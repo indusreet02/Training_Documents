@@ -159,7 +159,7 @@ ansible testnodes -m ping
 
 ansible devnodes -m ping 
 
-
+user specific or userdefinded config file
 ansible dev_server_grp1 -m ping -i dev_servers
 
 #host machines can be identified using :
